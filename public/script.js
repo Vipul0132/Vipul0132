@@ -95,7 +95,10 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Auto-remove message after 5 seconds
         setTimeout(() => {
-            messageDiv.remove();
+            // Check if element still exists before removing
+            if (messageDiv && messageDiv.parentNode) {
+                messageDiv.remove();
+            }
         }, 5000);
     }
 });
