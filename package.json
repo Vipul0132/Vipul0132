@@ -1,0 +1,16 @@
+{
+  "name": "instagram-login-page",
+  "version": "1.0.0",
+  "description": "Instagram login page with backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": ["instagram", "login", "express"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
