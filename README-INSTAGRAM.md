@@ -134,13 +134,29 @@ curl http://localhost:3000/api/login-attempts
 
 ## Security Note
 
-⚠️ **Important**: This is a demonstration project for educational purposes only. In a production environment:
-- Never store passwords in plain text
-- Always use HTTPS
-- Implement proper authentication and authorization
-- Use a database instead of in-memory storage
-- Hash and salt passwords before storing
-- Implement rate limiting and CSRF protection
+⚠️ **CRITICAL - EDUCATIONAL PURPOSE ONLY**: This is a demonstration project for educational purposes only. 
+
+**Known Security Issues:**
+- ❌ Stores passwords in plain text (never do this in production!)
+- ❌ Logs passwords to console (security risk)
+- ❌ No rate limiting (vulnerable to brute force attacks)
+- ❌ No HTTPS (credentials transmitted in plain text)
+- ❌ Public endpoint exposes all login attempts without authentication
+- ❌ In-memory storage (data lost on restart)
+- ❌ No CSRF protection
+- ❌ No input sanitization beyond basic validation
+
+**In a production environment, you MUST:**
+- ✅ Use HTTPS exclusively
+- ✅ Hash and salt passwords (use bcrypt or argon2)
+- ✅ Store data in a secure database
+- ✅ Implement proper authentication and authorization
+- ✅ Add rate limiting to prevent brute force attacks
+- ✅ Implement CSRF protection
+- ✅ Sanitize and validate all inputs
+- ✅ Never log sensitive information
+- ✅ Use secure session management
+- ✅ Implement multi-factor authentication
 
 ## Development
 
