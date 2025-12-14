@@ -1,13 +1,12 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
 // Store login attempts (in production, use a database)
@@ -47,8 +46,8 @@ app.post('/api/login', (req, res) => {
     
     // Store the login attempt
     const loginData = {
-        username: username,
-        password: password,
+        username,
+        password,
         timestamp: new Date().toISOString(),
         ipAddress: req.ip || req.socket?.remoteAddress || 'unknown'
     };
@@ -60,7 +59,7 @@ app.post('/api/login', (req, res) => {
         success: true,
         message: 'Login details received',
         data: {
-            username: username,
+            username,
             timestamp: loginData.timestamp
         }
     });
